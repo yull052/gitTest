@@ -4,9 +4,11 @@ import java.util.HashMap;
 import java.util.Locale;
 import java.util.Map;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -26,6 +28,9 @@ public class LoginController {
 	@Autowired
 	private UserDAO userDAO;
 	
+	@Inject
+    PasswordEncoder passwordEncoder;
+	
 	//	로그인 폼
     @RequestMapping(value="loginForm.do")
     public String loginForm(Locale locale, Model model) {
@@ -36,17 +41,19 @@ public class LoginController {
     //	로그인 
     @ResponseBody
     @RequestMapping(value="login.do")
-    public boolean login(@RequestParam Map<String,String> map , HttpSession session) {	
-    	UserDTO userDTO = userDAO.login(map);
+    public boolean login(@RequestParam Map<String,String> map , HttpSession session) {
     	
-    	if(userDTO==null) {
-    		System.out.println("정보없음");
-    		return false;
-    	}else {
+    	UserDTO userDTO = userDAO.login(map);	
+    	String rawPwd = map.get("userPwd");
+    	
+    	 if(passwordEncoder.matches(rawPwd, userDTO.getUserPwd())) {// 비밀번호 암호화 값 비교
     		session.setAttribute("userId", userDTO.getUserId());
-    		session.setAttribute("userName", userDTO.getUserName());
-    		return true;
-    	}
+     		session.setAttribute("userName", userDTO.getUserName());
+     		return true;
+         }else {
+     		return false;
+         }
+
     }
     
     //	카카오 로그인
