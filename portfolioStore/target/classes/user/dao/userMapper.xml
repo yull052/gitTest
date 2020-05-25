@@ -10,7 +10,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 로그인 -->
 	<select id="login" parameterType="java.util.Map" resultType="user">
-		select * from test where userId = #{userId} and userPwd = #{userPwd}
+		select * from test where userId = #{userId}
 	</select>
 	
 	<!-- 회원 가입 -->

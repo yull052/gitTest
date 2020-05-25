@@ -2,9 +2,11 @@ package user.controller;
 
 import java.util.Locale;
 
+import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -21,6 +23,9 @@ import user.dao.UserDAO;
 public class UserController {	
 	@Autowired
 	private UserDAO userDAO;
+	
+	@Inject
+    PasswordEncoder passwordEncoder;
 	
 	//	회원가입 폼
 	@RequestMapping(value = "joinForm.do", method = RequestMethod.GET)
@@ -55,6 +60,9 @@ public class UserController {
 		if(userDTO.getUserEmail().equals("")) {//	이메일 입력값 없을 시 "-" 추가
 			userDTO.setUserEmail("-");
 		}
+		
+		//	비밀번호 암호화
+		userDTO.setUserPwd(passwordEncoder.encode(userDTO.getUserPwd()));
 		userDAO.join(userDTO);
 		System.out.println("회원가입완료");
 		
@@ -95,6 +103,9 @@ public class UserController {
 	//	비밀번호 변경
 	@RequestMapping(value = "chanPwd.do", method = RequestMethod.POST)
 	public String chanPwdForm(@ModelAttribute UserDTO userDTO) {
+		//		비밀번호 암호화
+		userDTO.setUserPwd(passwordEncoder.encode(userDTO.getUserPwd()));
+		
 		//	비밀번호 전달
 		userDAO.chanPwd(userDTO);
 		System.out.println("변경완료");
