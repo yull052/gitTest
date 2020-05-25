@@ -1,0 +1,63 @@
+@charset "UTF-8";
+html, body{
+	width: 99%;
+	height: 99%;
+}
+
+.mainContainerDiv{
+   
+	background-image: url(../image/index.png);
+	background-repeat:no-repeat;
+    background-size: 100%;
+   	background-position-x: 20px;
+    background-position-y: 23px;
+    width: 98%;
+    height: 98%;
+   
+}
+
+.titleDiv{
+	position: absolute;
+    text-align: center;
+    width: 50%;
+    height: 10%;
+    top: 10%;
+    left: 0;
+    font-size: 70px;
+    margin: 0 25% 3% 25%;
+    letter-spacing: 7px;
+}
+
+.loginDiv {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#loginBtn {
+    width: 25%;
+    height: 13%;
+    font-family: 'Roboto', sans-serif;
+    font-size: 33px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+  }
+
+#loginBtn:hover {
+  background-color: #2EE59D;
+  box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+  color: #fff;
+  transform: translateY(-7px);
+}
+
+

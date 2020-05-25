@@ -1,0 +1,17 @@
+@charset "UTF-8";
+body{
+	background-color: #D8D8D8;
+    background-size: 100%;
+}
+
+.mainDiv{
+	background-color: white;
+    position: absolute;
+    text-align: center;
+    width: 30%;
+    height: 62%;
+    top: 15%;
+    left: 35%;
+    font-size: 50px;
+
+}

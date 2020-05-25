@@ -1,0 +1,34 @@
+@charset "UTF-8";
+.labelDiv{
+	display: inline-block;
+	margin-left: 23px;
+	font-size: 50px;
+}
+.loginDiv{
+	display: inline-block;
+    margin-left: 67%;
+    font-size: 25px;
+}
+.menuDiv{
+	width: 100%;
+	height: 70px;
+	background: #2E2E2E;
+	color: white;
+	font-size: 25px;
+	margin: 20px 0 20px 0;
+	letter-spacing: 5px;
+}
+
+li{
+	list-style:none;
+	padding-top: 20px;
+	word-spacing: 35px;
+	
+}
+
+.contentsDiv{
+	width: 100%;
+    height: 800px;
+    border: 1px solid;
+    text-align: center;
+}

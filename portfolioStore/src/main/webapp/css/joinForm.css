@@ -1,0 +1,68 @@
+@charset "UTF-8";
+body{
+	background-color: #D8D8D8;
+    background-size: 100%;
+}
+
+.mainDiv{
+	background-color: white;
+    position: absolute;
+    width: 30%;
+    height: 70%;
+    top: 15%;
+    left: 35%;
+    font-size: 25px;
+
+}
+form{
+	text-align: left;
+	padding-top: 10%;
+	padding-left: 12%;
+	line-height: 35px;
+}
+
+input[type="text"],[type="password"]{
+	width: 210px;
+    height: 35px;
+    padding-left: 1%;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}
+#idCheckBtn{
+	width: 115px;
+    height: 35px;
+    margin-left: 40px;
+    background: #2E2E2E;
+    color: white;
+    border: none;
+    font-size: 15px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+#joinBtn{
+	width: 150px;
+    height: 43px;
+    margin-top: 30px;
+    margin-left: 28%;
+    background: #2E2E2E;
+    color: white;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+input.error{
+
+  border:1px dashed red;
+
+}
+
+label.error{
+
+	margin-left:10px;
+	color:red;
+	padding-left:5px;
+	display:inline;
+	font-size: 17px;
+}

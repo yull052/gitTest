@@ -1,0 +1,51 @@
+@charset "UTF-8";
+
+body{
+	background-color: #D8D8D8;
+    background-size: 100%;
+}
+
+.mainDiv{
+	background-color: white;
+    position: absolute;
+    width: 30%;
+    height: 70%;
+    top: 15%;
+    left: 35%;
+    font-size: 25px;
+    text-align: center;
+}
+
+.btnDiv{
+    margin-top: 10%;
+    letter-spacing: 17px;
+    height: 8%;
+}
+
+.findBtn, #findInfo{
+	height: 60px;
+    width: 37%;
+	background: #2E2E2E;
+	color: white;
+	border: none;
+	font-size: 20px;
+	cursor: pointer;
+}
+
+.textDiv{
+	margin-top: 25%;
+}
+
+label{
+	margin-right:25%;
+}
+.findDiv{
+	height: 50px;
+}
+input[type="text"]{
+	width: 210px;
+    height: 35px;
+    padding-left: 1%;
+    margin-top: 7px;
+    margin-bottom: 10px;
+}

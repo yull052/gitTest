@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper 
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="userSQL">
+	<!-- 아이디 중복 체크 -->
+	<select id="dupeId" parameterType="string" resultType="user">
+		select * from test where userId = #{userId}
+	</select>
+	
+	<!-- 로그인 -->
+	<select id="login" parameterType="java.util.Map" resultType="user">
+		select * from test where userId = #{userId} and userPwd = #{userPwd}
+	</select>
+	
+	<!-- 회원 가입 -->
+	<insert id="join" parameterType="user">
+		insert into test (USERID
+							 ,USERPWD
+							 ,USERNAME
+							 ,USERPHONE
+							 ,USEREMAIL) 
+					values (#{userId} 
+							,#{userPwd} 
+							,#{userName}
+							,#{userPhone}
+							,#{userEmail})
+	</insert>
+	
+	<!-- 정보 찾기 -->
+	<select id="findInfo" parameterType="user" resultType="string">
+		select userId from test
+		where
+		<choose>
+			<when test='userId == null'>
+				 userName=#{userName} 
+			</when>
+			<otherwise>
+				userId=#{userId}
+			</otherwise>
+		</choose>
+		and userPhone=#{userPhone}
+	</select>
+	
+	<!-- 비밀번호 변경 -->
+	<update id="chanPwd" parameterType="user">
+		update test set userPwd=#{userPwd} where userId=#{userId}
+	</update>
+</mapper>
